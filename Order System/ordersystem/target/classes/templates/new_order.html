@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h2>New Order</h2>
+<form th:action="@{/save}" th:object="${order}" method="post">
+    <p>Date: <input type="text" th:field="*{date}" /></p>
+    <p>Customer Name: <input type="text" th:field="*{customerName}" /></p>
+    <p>Product Name: <input type="text" th:field="*{productName}" /></p>
+    <p>Quantity: <input type="number" th:field="*{quantity}" /></p>
+    <p>Price: <input type="number" th:field="*{price}" /></p>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
